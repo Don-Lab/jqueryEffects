@@ -1,0 +1,211 @@
+<DOCTYPE! html>
+<head>
+	<title>Jquery Effects</title>
+</head>
+<body>
+
+<p id="para1">Hello World</p>
+<button id="btn1">hide()</button>
+<br />
+<p id="para2">Hello World</p>
+<button id="btn2">show()</button>
+<br />
+<p id="para3">Hello World</p>
+<button id="btn3">toggle()</button>
+<br />
+<p id="para4">Hello World</p>
+<button id="btn4">fadeIn()</button>
+<br />
+<p id="para5">Hello World</p>
+<button id="btn5">fadeOut()</button>
+<br />
+<p id="para6">Hello World</p>
+<button id="btn6">fadeToggle()</button>
+<br />
+<p id="para7">Hello World</p>
+<button id="btn7">fadeTo()</button>
+<br />
+<p id="para8">Hello World</p>
+<button id="btn8">slideDown()</button>
+<br />
+<p id="para9">Hello World</p>
+<button id="btn9">slideUp()</button>
+<br />
+<p id="para10">Hello World</p>
+<button id="btn10">slideToggle()</button>
+<br />
+<p id="para11"><div style="width: 100px; height: 100px; background-color: #00ff00; position: fixed; margin: 15px"></div></p>
+<br />
+<p id="para12">Hello World</p>
+<button id="btnStart">start</button>
+<button id="btn12">stop()</button>
+<br />
+<p id="para13">Hello World</p>
+<button id="btn13">Callback</button>
+<br />
+<p id="para14">Hello World</p>
+<button id="btn14">Chaining()</button>
+<br />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<script>
+//Jquery is a library of Javascript
+//It makes it easy to do more in Javascript with little amounts of code
+//you can download the library or link it like the script tag above
+
+/*
+Syntax
+$(selector).action
+EX: syntax => effect(speed, callback) SEE "CALLBACK" EXAMPLE AT LINE 183
+*/
+
+/*
+Selectors manipulate HTML elements
+tag - tag
+id - #id
+class - .class
+* - all elements
+tag and class - tag.class
+there are more selectors
+*/
+
+/*
+Events are how the user interacts with the web page
+click
+mouseenter
+mouseleave
+dblclick
+scroll
+resize
+submit
+there are more events
+*/
+
+//--APPLICATION OF KNOWLEDGE--
+//these are methods in the library
+
+//hide() hides the element
+$(document).ready(function() { //when the DOM is ready
+$("#btn1").click(function() {	//and when #btn1(selector) is clicked(event)
+	$("#para1").hide(1000);			//hide is a method / #para1 is a selector
+});
+});
+
+//show() displays the element
+$(document).ready(function() {
+	$("btn2").click(function() {
+		$("#para2").show();
+	});
+});
+
+//toggle() alternates between hide and show
+$(document).ready(function(){
+    $("#btn3").click(function(){
+        $("#para3").toggle();
+    });
+});
+
+//fadeIn() fades in an element
+//syntax => fadeIn(speed, callback)
+//for speed you can type fast, slow, or in milliseconds
+$(document).ready(function() {
+	$("#btn4").click(function() {
+		("#para5").fadeIn(1000)
+	});
+});
+
+//fadeOut() fade the element out
+$(document).ready(function() {
+	$("#btn5").click(function() {
+		$("#para5").fadeOut(1000);
+	});
+});
+
+//fadeToggle() alternates fadeOut() and fadeIn()
+$(document).ready(function() {
+	$("#btn6").click(function() {
+		$("#para6").fadeToggle(1000);
+	});
+});
+
+//fadeTo() allows the element to change to certain properties
+//syntax => fadeTo(speed, opacity, callback)
+$(document).ready(function() {
+	$("#btn7").click(function() {
+		$("#para7").fadeTo(2000, 0.5);
+	});
+});
+
+//slideDown() reveils the element by sliding down
+$(document).ready(function() {
+	$("#btn8").click(function() {
+		$("#para8").slideDown(1000);
+	});
+});
+
+//slideDown() covers an element by having the element slide up
+$(document).ready(function(){
+	$("#btn9").click(function() {
+		$("para9").slideUp(1000);
+	});
+});
+
+//slideToggle() alternates between slideUp() and slideDown()
+$(document).ready(function(){
+	$("#btn10").click(function(){
+		$("#para10").slideToggle(1000);
+	});
+});
+
+//animate() is a method that allows you to animate an element
+//syntax => animate({parameters}, speed, callback)
+$(document).ready(function(){
+		$("div").animate({left: '300px'}, 3000);
+});
+
+//stop() allows the user to stop an effect at anytime
+//syntax => stop(stopAll, goToEnd) stopAll and goToEnd are both optional
+/*
+stopAll - specifies whether the effect properties should be cancelled
+goToEnd - whether the program will finish the current effect right after
+*/
+//place the stop() in the same doc.ready with the effect
+$(document).ready(function(){
+	$("#btnStart").click(function(){
+		$("#para12").fadeOut(10000);
+	});
+	$("#btn12").click(function(){
+		$("#para12").stop();
+	})
+});
+
+//Callbacks - where you can place a function to run after the effect has happened
+$(document).ready(function(){
+	$("#btn13").click(function(){
+		$("#para13").slideToggle(1000, function(){
+			prompt("How do you feel about the element sliding up", "Answer");
+		});
+	});
+});
+
+//Chaining - multiple methods connected under one jquery element (just add a "." in between each method)
+$(document).ready(function(){
+	$("#btn14").click(function(){
+		$("#para14").fadeOut(2000).fadeIn(2000);
+	})
+})
+</script>
+
+
+<style>
+#para4 {
+	display: none;
+}
+
+#para8 {
+	display: none;
+}
+</style>
+</body>
+</html>
